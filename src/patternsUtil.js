@@ -38,14 +38,33 @@ const angledLine = function (width){
 
 const createAlternativeRectangle = function(width,height){
   let line ={"0" :filledLine ,"1" :alternateLine};;
-  let result = "";
-  let delimeter = "";
+  let result = [];
   for(row = 0;row < height;row++){
-    result += delimeter+line[row%2](width);
-    delimeter = "\n"
+    result[row] = line[row%2](width);
   };
-  return result;
+  return result.join("\n");
 };
+
+const createFilledOrHollowRectangle = function(width,height,type){
+  let rectangle = [];
+  line = { "filled" :filledLine ,"hollow":hollowLine};;
+  rectangle[0] = filledLine(width);
+  for(row = 1;row < height-1;row++){
+    rectangle[row] = line[type](width);
+  };
+  if(height > 1){
+    rectangle [height-1]= filledLine(width);
+  };
+  return rectangle.join("\n");;
+};
+
+const createFilledRectangle = function(width,height){
+  return createFilledOrHollowRectangle(width,height,"filled");
+}
+
+const createHollowRectangle = function(width,height){
+  return createFilledOrHollowRectangle(width,height,"hollow");
+}
 const generateLeftTriangleLine = function(row,height){
   let line = "";
   line = generatePattern(row,"*");
@@ -80,4 +99,4 @@ const extractInputs = function(args){
   return userArgs;
 };
 
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs};
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle };

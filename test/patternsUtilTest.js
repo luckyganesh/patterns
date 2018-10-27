@@ -75,3 +75,31 @@ assert.deepEqual(extractInputs(["node","createRectangle.js","filled","4","5"]),{
 assert.deepEqual(extractInputs(["node","createTriangle.js","left","4"]),{ type : "left" ,height : 4 });
 assert.deepEqual(extractInputs(["node","createDiamond.js","angled","9"]),{ type : "angled" ,height : 9 });
 console.log("extractInputs function passed");
+
+//create alternating rectangle
+let { createAlternativeRectangle } = util;
+assert.deepEqual(createAlternativeRectangle(1,1),"*");
+assert.deepEqual(createAlternativeRectangle(1,2),"*\n-");
+assert.deepEqual(createAlternativeRectangle(2,2),"**\n--");
+assert.deepEqual(createAlternativeRectangle(5,5),"*****\n-----\n*****\n-----\n*****");
+assert.deepEqual(createAlternativeRectangle(5,6),"*****\n-----\n*****\n-----\n*****\n-----");
+console.log("createAlternateRectangle function passed");
+
+//create filled rectangle
+let { createFilledRectangle } = util;
+assert.deepEqual(createFilledRectangle(1,1),"*");
+assert.deepEqual(createFilledRectangle(1,2),"*\n*");
+assert.deepEqual(createFilledRectangle(2,2),"**\n**");
+assert.deepEqual(createFilledRectangle(5,5),"*****\n*****\n*****\n*****\n*****");
+assert.deepEqual(createFilledRectangle(5,6),"*****\n*****\n*****\n*****\n*****\n*****");
+console.log("createFilledRectangle function passed");
+
+//create hollow rectangle
+let { createHollowRectangle } = util;
+assert.deepEqual(createHollowRectangle(1,1),"*");
+assert.deepEqual(createHollowRectangle(1,2),"*\n*");
+assert.deepEqual(createHollowRectangle(2,2),"**\n**");
+assert.deepEqual(createHollowRectangle(3,3),"***\n* *\n***");
+assert.deepEqual(createHollowRectangle(5,5),"*****\n*   *\n*   *\n*   *\n*****");
+assert.deepEqual(createHollowRectangle(5,6),"*****\n*   *\n*   *\n*   *\n*   *\n*****");
+console.log("createHollowRectangle function passed");

@@ -1,29 +1,22 @@
 const { generatePattern , generateLine , leftWidth , rightWidth } = require("./patternsUtil.js");
 const { filledLine , hollowLine , alternateLine , createAlternativeRectangle } = require("./patternsUtil.js");
 const { generateLeftTriangleLine , generateRightTriangleLine } = require("./patternsUtil.js");
-const { angledLine , reverseText } = require("./patternsUtil.js");
+const { angledLine , reverseText ,createFilledRectangle ,createHollowRectangle} = require("./patternsUtil.js");
 
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
-  let result = "wrong input"
+  let rectangle = [];
   line = { "filled" :filledLine ,"hollow":hollowLine};;
-  delimeter = "\n";
   if(type == "alternating"){
     return createAlternativeRectangle(width,height);
   };
-  if(!(type == "filled" || type == "hollow")){
-    return "wrong input";
-  };
-  if(height > 0){
-    result = filledLine(width);
-  };
-  for(row = 1;row < height-1;row++){
-    result += delimeter + line[type](width);
-  };
-  if(height > 1){
-    result += delimeter + filledLine(width);
-  };
-  return result;
+  if(type == "filled"){
+    return createFilledRectangle(width,height);
+  }
+  if(type == "hollow"){
+    return createHollowRectangle(width,height);
+  }
+  return "";
 };
 
 const generateTriangle = function (parameters){
