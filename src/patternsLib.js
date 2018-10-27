@@ -3,7 +3,8 @@ const { filledLine , hollowLine , alternateLine , createAlternativeRectangle } =
 const { generateLeftTriangleLine , generateRightTriangleLine } = require("./patternsUtil.js");
 const { angledLine , reverseText } = require("./patternsUtil.js");
 
-const generateRectangle = function(type,width,height){
+const generateRectangle = function(parameters){
+  let { type , width , height } = parameters;
   let result = "wrong input"
   line = { "filled" :filledLine ,"hollow":hollowLine};;
   delimeter = "\n";
@@ -25,7 +26,8 @@ const generateRectangle = function(type,width,height){
   return result;
 };
 
-const generateTriangle = function (type,height){
+const generateTriangle = function (parameters){
+  let { type , height } = parameters;
   let line = { "right" :generateRightTriangleLine , "left" :generateLeftTriangleLine };;
   let delimeter = "";
   let triangle = "";
@@ -36,7 +38,8 @@ const generateTriangle = function (type,height){
   return triangle;
 };
 
-const generateDiamond = function (type,height){
+const generateDiamond = function (parameters){
+  let { type , height } = parameters;
   let diamondType = { "filled":filledLine , "hollow" :hollowLine ,"angled" :angledLine };;
   let length = Math.ceil(height/2);
   let diamondLines = [];

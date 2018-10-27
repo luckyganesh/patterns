@@ -68,15 +68,16 @@ const reverseText = function(text){
   return revText
 };
 
-const extractInputs = function(array){
-  let args = {};
-  args.type = array[2];
-  args.height = +array[3];
-  if(array[4]){
-    args.width = +array[3];
-    args.height = +array[4];
+const extractInputs = function(args){
+  let userArgs = {};
+  userArgs.type = args[2];
+  userArgs.height = +args[3];
+  let isRectangle = args[4];
+  if(isRectangle){
+    userArgs.width = +args[3];
+    userArgs.height = +args[4];
   }
-  return args;
+  return userArgs;
 };
 
 module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs};
