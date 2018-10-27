@@ -67,3 +67,11 @@ let {reverseText} = util;
 assert.equal(reverseText("/  \\"),"\\  /");
 assert.equal(reverseText("/  *"),"*  /");
 console.log("reverseText function passed");
+
+//extract inputs function
+let { extractInputs } = util;
+assert.deepEqual(extractInputs([1,2,3,4,5]),{ type : 3 ,width : 4 , height :5 });
+assert.deepEqual(extractInputs(["node","createRectangle.js","filled","4","5"]),{ type : "filled" ,width : 4 , height :5 });
+assert.deepEqual(extractInputs(["node","createTriangle.js","left","4"]),{ type : "left" ,height : 4 });
+assert.deepEqual(extractInputs(["node","createDiamond.js","angled","9"]),{ type : "angled" ,height : 9 });
+console.log("extractInputs function passed");
