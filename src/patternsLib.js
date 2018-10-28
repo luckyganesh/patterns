@@ -6,16 +6,8 @@ const { centerJustifier } = require("./patternsUtil.js");
 
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
-  if(type == "alternating"){
-    return createAlternativeRectangle(width,height);
-  };
-  if(type == "filled"){
-    return createFilledRectangle(width,height);
-  }
-  if(type == "hollow"){
-    return createHollowRectangle(width,height);
-  }
-  return "";
+  let rectangleType = { filled : createFilledRectangle , hollow : createHollowRectangle , alternating :createAlternativeRectangle };
+  return rectangleType[type](width,height);
 };
 
 const generateTriangle = function (parameters){
