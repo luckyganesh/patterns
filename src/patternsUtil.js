@@ -79,6 +79,24 @@ const generateRightTriangleLine = function(row,height){
   return line;
 };
 
+const createTriangle = function(type,height){
+  let line = { "right" :generateRightTriangleLine , "left" :generateLeftTriangleLine };;
+  let triangle = Array(height).fill("");
+  const triangleLine = function(element,index){
+    return line[type](index+1,height);
+  }
+  triangle = triangle.map(triangleLine);
+  return triangle.join("\n");
+}
+
+const createLeftTriangle = function(height){
+  return createTriangle("left",height);
+}
+
+const createRightTriangle = function(height){
+  return createTriangle("right",height);
+}
+
 const reverseText = function(text){
   let revText = "";
   for(let character = text.length-1;character >= 0;character--){
@@ -104,4 +122,4 @@ const centerJustifier = function(text,length){
   let spaces = generatePattern(number," ");
   return spaces+text+spaces;
 }
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier };
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle };

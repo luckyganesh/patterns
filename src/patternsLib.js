@@ -2,7 +2,7 @@ const { generatePattern , generateLine , leftWidth , rightWidth } = require("./p
 const { filledLine , hollowLine , alternateLine , createAlternativeRectangle } = require("./patternsUtil.js");
 const { generateLeftTriangleLine , generateRightTriangleLine } = require("./patternsUtil.js");
 const { angledLine , reverseText ,createFilledRectangle ,createHollowRectangle} = require("./patternsUtil.js");
-const { centerJustifier } = require("./patternsUtil.js");
+const { centerJustifier , createLeftTriangle ,createRightTriangle } = require("./patternsUtil.js");
 
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
@@ -12,13 +12,8 @@ const generateRectangle = function(parameters){
 
 const generateTriangle = function (parameters){
   let { type , height } = parameters;
-  let line = { "right" :generateRightTriangleLine , "left" :generateLeftTriangleLine };;
-  let triangle = Array(height).fill("");
-  const triangleLine = function(element,index){
-    return line[type](index+1,height);
-  }
-  triangle = triangle.map(triangleLine);
-  return triangle.join("\n");
+  let triangleType = { left : createLeftTriangle , right:createRightTriangle };
+  return triangleType[type](height);
 };
 
 const generateDiamond = function (parameters){
