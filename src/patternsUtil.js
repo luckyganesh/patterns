@@ -99,4 +99,9 @@ const extractInputs = function(args){
   return userArgs;
 };
 
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle };
+const centerJustifier = function(text,length){
+  let number = (length - text.length)/2;
+  let spaces = generatePattern(number," ");
+  return spaces+text+spaces;
+}
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier };

@@ -103,3 +103,11 @@ assert.deepEqual(createHollowRectangle(3,3),"***\n* *\n***");
 assert.deepEqual(createHollowRectangle(5,5),"*****\n*   *\n*   *\n*   *\n*****");
 assert.deepEqual(createHollowRectangle(5,6),"*****\n*   *\n*   *\n*   *\n*   *\n*****");
 console.log("createHollowRectangle function passed");
+
+//centerJustifier function
+let { centerJustifier } = util;
+assert.deepEqual(centerJustifier("a",3)," a ");
+assert.deepEqual(centerJustifier("abc",3),"abc");
+assert.deepEqual(centerJustifier("abc",5)," abc ");
+console.log("center justifier function passed");
+
