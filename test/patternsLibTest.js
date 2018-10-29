@@ -1,5 +1,5 @@
 const assert = require("assert");
-const { generateRectangle , generateTriangle , generateDiamond } = require("../src/patternsLib.js");
+const { generateRectangle , generateTriangle , generateDiamond ,createPattern} = require("../src/patternsLib.js");
 //generateTriangle function
 assert.deepEqual(generateTriangle({type:"left",height:3}),"*  \n** \n***");
 assert.deepEqual(generateTriangle({type:"right",height:3}),"  *\n **\n***");
@@ -21,3 +21,6 @@ assert.deepEqual(generateDiamond({type:"angled",height:5}),"  *  \n / \\ \n*   *
 assert.deepEqual(generateDiamond({type:"angled",height:1}),"*");
 console.log("generate diamond function test passed");
 
+//createPattern function
+assert.deepEqual(createPattern(["left_triangle",5]),"*    \n**   \n***  \n**** \n*****");
+console.log("create pattern function test passed");
