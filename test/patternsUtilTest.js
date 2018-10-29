@@ -111,3 +111,16 @@ assert.deepEqual(centerJustifier("abc",3),"abc");
 assert.deepEqual(centerJustifier("abc",5)," abc ");
 console.log("center justifier function passed");
 
+//create left triangle function
+let { createLeftTriangle } = util;
+assert.deepEqual(createLeftTriangle(1),"*");
+assert.deepEqual(createLeftTriangle(2),"* \n**");
+assert.deepEqual(createLeftTriangle(0),"");
+console.log("createLeftTriangle function passed");
+
+//create right triangle function
+let { createRightTriangle } = util;
+assert.deepEqual(createRightTriangle(1),"*");
+assert.deepEqual(createRightTriangle(2)," *\n**");
+assert.deepEqual(createRightTriangle(0),"");
+console.log("createRightTriangle function passed");
