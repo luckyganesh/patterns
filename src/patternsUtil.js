@@ -116,12 +116,15 @@ const reverseText = function(text){
 
 const extractInputs = function(args){
   let userArgs = {};
-  userArgs.type = args[2];
-  userArgs.height = +args[3];
-  let isRectangle = args[4];
+  userArgs.type = args[0];
+  if(!args[1]){
+    userArgs.error="wrong inputs";
+  };
+  userArgs.height = +args[1];
+  let isRectangle = args[2];
   if(isRectangle){
-    userArgs.width = +args[3];
-    userArgs.height = +args[4];
+    userArgs.width = +args[1];
+    userArgs.height = +args[2];
   }
   return userArgs;
 };
