@@ -131,4 +131,4 @@ const centerJustifier = function(text,length){
   let spaces = generatePattern(number," ");
   return spaces+text+spaces;
 }
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle };
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle , makeCycler };

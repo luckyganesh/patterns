@@ -124,3 +124,17 @@ assert.deepEqual(createRightTriangle(1),"*");
 assert.deepEqual(createRightTriangle(2)," *\n**");
 assert.deepEqual(createRightTriangle(0),"");
 console.log("createRightTriangle function passed");
+
+//make cycler function
+let { makeCycler } = util;
+let cycleOne = makeCycler([1]);
+assert.equal(1,cycleOne());
+assert.equal(1,cycleOne());
+assert.equal(1,cycleOne());
+
+let cycleColours=makeCycler(["black","white"]);
+assert.equal("black",cycleColours());
+assert.equal("white",cycleColours());
+assert.equal("black",cycleColours());
+assert.equal("white",cycleColours());
+console.log("make cycler function passed");
