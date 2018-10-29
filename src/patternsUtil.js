@@ -36,12 +36,21 @@ const angledLine = function (width){
   return generateLine(width,"/"," ","\\");
 };
 
+const identity = function(element){return element};
+
+const makeCycler = function(elements){
+  let counter = 0;
+  let array = [];
+  array = elements.map(identity);
+  return function(){
+    return array[(counter++) % array.length];
+  }
+}
+
 const createAlternativeRectangle = function(width,height){
-  let line ={"0" :filledLine ,"1" :alternateLine};;
-  let result = [];
-  for(row = 0;row < height;row++){
-    result[row] = line[row%2](width);
-  };
+  let result = Array(height).fill("");
+  let rotater = makeCycler([filledLine(width),alternateLine(width)]);
+   result =  result.map(rotater);
   return result.join("\n");
 };
 
