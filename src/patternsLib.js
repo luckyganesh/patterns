@@ -7,13 +7,13 @@ const { centerJustifier , createLeftTriangle ,createRightTriangle } = require(".
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
   let rectangleType = { filled : createFilledRectangle , hollow : createHollowRectangle , alternating :createAlternativeRectangle };
-  return rectangleType[type](width,height);
+  return rectangleType[type](width,height).join("\n");
 };
 
 const generateTriangle = function (parameters){
   let { type , height } = parameters;
   let triangleType = { left : createLeftTriangle , right:createRightTriangle };
-  return triangleType[type](height);
+  return triangleType[type](height).join("\n");
 };
 
 const generateDiamond = function (parameters){

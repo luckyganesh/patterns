@@ -51,7 +51,7 @@ const createAlternativeRectangle = function(width,height){
   let result = Array(height).fill("");
   let rotater = makeCycler([filledLine(width),alternateLine(width)]);
    result =  result.map(rotater);
-  return result.join("\n");
+  return result;
 };
 
 const createFilledOrHollowRectangle = function(width,height,type){
@@ -64,7 +64,7 @@ const createFilledOrHollowRectangle = function(width,height,type){
   if(height > 1){
     rectangle [height-1]= filledLine(width);
   };
-  return rectangle.join("\n");;
+  return rectangle;
 };
 
 const createFilledRectangle = function(width,height){
@@ -95,7 +95,7 @@ const createTriangle = function(type,height){
     return line[type](index+1,height);
   }
   triangle = triangle.map(triangleLine);
-  return triangle.join("\n");
+  return triangle;
 }
 
 const createLeftTriangle = function(height){
@@ -131,4 +131,4 @@ const centerJustifier = function(text,length){
   let spaces = generatePattern(number," ");
   return spaces+text+spaces;
 }
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle , makeCycler };
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle ,makeCycler };

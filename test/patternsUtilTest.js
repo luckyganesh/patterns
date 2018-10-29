@@ -78,30 +78,30 @@ console.log("extractInputs function passed");
 
 //create alternating rectangle
 let { createAlternativeRectangle } = util;
-assert.deepEqual(createAlternativeRectangle(1,1),"*");
-assert.deepEqual(createAlternativeRectangle(1,2),"*\n-");
-assert.deepEqual(createAlternativeRectangle(2,2),"**\n--");
-assert.deepEqual(createAlternativeRectangle(5,5),"*****\n-----\n*****\n-----\n*****");
-assert.deepEqual(createAlternativeRectangle(5,6),"*****\n-----\n*****\n-----\n*****\n-----");
+assert.deepEqual(createAlternativeRectangle(1,1),["*"]);
+assert.deepEqual(createAlternativeRectangle(1,2),["*","-"]);
+assert.deepEqual(createAlternativeRectangle(2,2),["**","--"]);
+assert.deepEqual(createAlternativeRectangle(5,5),["*****","-----","*****","-----","*****"]);
+assert.deepEqual(createAlternativeRectangle(5,6),["*****","-----","*****","-----","*****","-----"]);
 console.log("createAlternateRectangle function passed");
 
 //create filled rectangle
 let { createFilledRectangle } = util;
-assert.deepEqual(createFilledRectangle(1,1),"*");
-assert.deepEqual(createFilledRectangle(1,2),"*\n*");
-assert.deepEqual(createFilledRectangle(2,2),"**\n**");
-assert.deepEqual(createFilledRectangle(5,5),"*****\n*****\n*****\n*****\n*****");
-assert.deepEqual(createFilledRectangle(5,6),"*****\n*****\n*****\n*****\n*****\n*****");
+assert.deepEqual(createFilledRectangle(1,1),["*"]);
+assert.deepEqual(createFilledRectangle(1,2),["*","*"]);
+assert.deepEqual(createFilledRectangle(2,2),["**","**"]);
+assert.deepEqual(createFilledRectangle(5,5),["*****","*****","*****","*****","*****"]);
+assert.deepEqual(createFilledRectangle(5,6),["*****","*****","*****","*****","*****","*****"]);
 console.log("createFilledRectangle function passed");
 
 //create hollow rectangle
 let { createHollowRectangle } = util;
-assert.deepEqual(createHollowRectangle(1,1),"*");
-assert.deepEqual(createHollowRectangle(1,2),"*\n*");
-assert.deepEqual(createHollowRectangle(2,2),"**\n**");
-assert.deepEqual(createHollowRectangle(3,3),"***\n* *\n***");
-assert.deepEqual(createHollowRectangle(5,5),"*****\n*   *\n*   *\n*   *\n*****");
-assert.deepEqual(createHollowRectangle(5,6),"*****\n*   *\n*   *\n*   *\n*   *\n*****");
+assert.deepEqual(createHollowRectangle(1,1),["*"]);
+assert.deepEqual(createHollowRectangle(1,2),["*","*"]);
+assert.deepEqual(createHollowRectangle(2,2),["**","**"]);
+assert.deepEqual(createHollowRectangle(3,3),["***","* *","***"]);
+assert.deepEqual(createHollowRectangle(5,5),["*****","*   *","*   *","*   *","*****"]);
+assert.deepEqual(createHollowRectangle(5,6),["*****","*   *","*   *","*   *","*   *","*****"]);
 console.log("createHollowRectangle function passed");
 
 //centerJustifier function
@@ -113,16 +113,16 @@ console.log("center justifier function passed");
 
 //create left triangle function
 let { createLeftTriangle } = util;
-assert.deepEqual(createLeftTriangle(1),"*");
-assert.deepEqual(createLeftTriangle(2),"* \n**");
-assert.deepEqual(createLeftTriangle(0),"");
+assert.deepEqual(createLeftTriangle(1),["*"]);
+assert.deepEqual(createLeftTriangle(2),["* ","**"]);
+assert.deepEqual(createLeftTriangle(0),[]);
 console.log("createLeftTriangle function passed");
 
 //create right triangle function
 let { createRightTriangle } = util;
-assert.deepEqual(createRightTriangle(1),"*");
-assert.deepEqual(createRightTriangle(2)," *\n**");
-assert.deepEqual(createRightTriangle(0),"");
+assert.deepEqual(createRightTriangle(1),["*"]);
+assert.deepEqual(createRightTriangle(2),[" *","**"]);
+assert.deepEqual(createRightTriangle(0),[]);
 console.log("createRightTriangle function passed");
 
 //make cycler function
