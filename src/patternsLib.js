@@ -8,13 +8,13 @@ const { extractInputs ,extractMultiInputs  } = require("./patternsUtil.js");
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
   let rectangleType = { filled : createFilledRectangle , hollow : createHollowRectangle , alternating :createAlternativeRectangle };
-  return rectangleType[type](width,height).join("\n");
+  return rectangleType[type](width,height);
 };
 
 const generateTriangle = function (parameters){
   let { type , height } = parameters;
   let triangleType = { left : createLeftTriangle , right:createRightTriangle };
-  return triangleType[type](height).join("\n");
+  return triangleType[type](height);
 };
 
 const generateDiamond = function (parameters){
@@ -43,7 +43,7 @@ const generateDiamond = function (parameters){
   for(let row = length-2;row >= 0;row--){
     diamondLines[diamondLines.length] = reverseText(diamondLines[row]);
   };
-  return diamondLines.join("\n");
+  return diamondLines;
 };
 
 const createPattern = function(patternInputs){
