@@ -22,5 +22,7 @@ assert.deepEqual(generateDiamond({type:"angled",height:1}),"*");
 console.log("generate diamond function test passed");
 
 //createPattern function
-assert.deepEqual(createPattern(["left_triangle",5]),"*    \n**   \n***  \n**** \n*****");
+assert.deepEqual(createPattern(["node","createPattern.js","left_triangle",5]),["*    \n**   \n***  \n**** \n*****"]);
+assert.deepEqual(createPattern(["node","createPattern.js","right_triangle",5]),["    *\n   **\n  ***\n ****\n*****"]);
+assert.deepEqual(createPattern(["node","createPattern.js","filled_rectangle",5,6,"right_triangle",5]),["*****\n*****\n*****\n*****\n*****\n*****","    *\n   **\n  ***\n ****\n*****"]);
 console.log("create pattern function test passed");

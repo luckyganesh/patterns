@@ -129,9 +129,28 @@ const extractInputs = function(args){
   return userArgs;
 };
 
+const extractMultiInputs = function (array){
+    let result = [];
+  let i = 0;
+  for ( let index = 2; index < array.length ; index +=2){
+    result[i] = {};
+    type = array[index].split("_");
+    let parameters = [type[0],array[index+1]]
+    isRectangle = (type[1] == "rectangle");
+    if(isRectangle){
+      parameters.push(array[index+2]);
+      index++;
+    }
+    result[i] = extractInputs(parameters)
+    result[i].shape = type[1];
+    i++;
+  }
+  return result;
+}
+
 const centerJustifier = function(text,length){
   let number = (length - text.length)/2;
   let spaces = generatePattern(number," ");
   return spaces+text+spaces;
 }
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle ,makeCycler };
+module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle ,makeCycler ,extractMultiInputs };
