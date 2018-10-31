@@ -181,6 +181,20 @@ const mergePatterns = function(array){
   return result;
 }
 
+
+const flip = function(array){
+  array = array.map(function(element){
+    return element.map(reverseText);
+  });
+  return array;
+}
+
+const mirror = function (array){
+  array = array.map(function(element){
+    return element.reverse();
+  });
+  return array;
+}
 module.exports = {generatePattern ,
   generateLine ,
   leftWidth ,
@@ -202,4 +216,6 @@ module.exports = {generatePattern ,
   makeCycler ,
   extractMultiInputs ,
   findMaxlength ,
-  mergePatterns };
+  mergePatterns ,
+  flip ,
+  mirror };

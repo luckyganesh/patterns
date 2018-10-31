@@ -1,3 +1,7 @@
 filled_rectangle|2|2|left_triangle|4|filled_diamond|5
 hollow_rectangle|3|3|right_triangle|5|hollow_diamond|7
 alternating_rectangle|5|5|left_triangle|5|angled_diamond|5
+flip|filled_rectangle|2|2|left_triangle|4|filled_diamond|5
+flip|left_triangle|6|right_triangle|8
+mirror|filled_rectangle|2|2|left_triangle|4|filled_diamond|5
+mirror|left_triangle|6|right_triangle|8

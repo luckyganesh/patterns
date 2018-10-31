@@ -160,27 +160,58 @@ expectedOutput = [];
 expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
 assert.deepEqual(extractMultiInputs(["node" , "createPattern.js","filled_diamond",5]),expectedOutput);
 expectedOutput = [];
-expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
-assert.deepEqual(extractMultiInputs(["node" , "createPattern.js","filled_triangle",5]),expectedOutput);
+expectedOutput.push({ type :"left" ,height : 5 , shape : "triangle"});
+assert.deepEqual(extractMultiInputs(["node" , "createPattern.js","left_triangle",5]),expectedOutput);
 expectedOutput = [];
-expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
+expectedOutput.push({ type :"right" ,height : 5 , shape : "triangle"});
 expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
 let inputs = [];
 inputs.push("node");
 inputs.push("createPatterns.js");
-inputs = inputs.concat(["filled_triangle",5]);
+inputs = inputs.concat(["right_triangle",5]);
 inputs = inputs.concat(["filled_diamond",5]);
 assert.deepEqual(extractMultiInputs(inputs),expectedOutput);
 expectedOutput = [];
-expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
+expectedOutput.push({ type :"right" ,height : 5 , shape : "triangle"});
 expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
 expectedOutput.push({ type :"filled" ,height : 5 , width : 5 , shape : "rectangle"});
 inputs = [];
 inputs.push("node");
 inputs.push("createPatterns.js");
-inputs = inputs.concat(["filled_triangle",5]);
+inputs = inputs.concat(["right_triangle",5]);
 inputs = inputs.concat(["filled_diamond",5]);
 inputs = inputs.concat(["filled_rectangle",5,5]);
 assert.deepEqual(extractMultiInputs(inputs),expectedOutput);
 console.log("extractMultiple inputs function passed");
 
+//flip
+let { flip } = util;
+inputs = [[],[]];
+expectedOutput =[[],[]];
+assert.deepEqual(flip(inputs),expectedOutput);
+inputs = [["l"],["u"]];
+expectedOutput = [["l"],["u"]]
+assert.deepEqual(flip(inputs),expectedOutput);
+inputs = [["+-*"],["--*"]];
+expectedOutput = [["*-+"],["*--"]];
+assert.deepEqual(flip(inputs),expectedOutput);
+inputs = [["**-","--*","004"],["123","456","789"]];
+expectedOutput = [["-**","*--","400"],["321","654","987"]];
+assert.deepEqual(flip(inputs),expectedOutput);
+inputs = [["123","456"],["567","224"],["2786","86e","hello"]];
+expectedOutput = [["321","654"],["765","422"],["6872","e68","olleh"]];
+assert.deepEqual(flip(inputs),expectedOutput);
+console.log("flip function passed");
+
+//mirror
+let { mirror } = util;
+inputs = [[],[]];
+expectedOutput =[[],[]];
+assert.deepEqual(mirror(inputs),expectedOutput);
+inputs = [["l"],["u"]];
+expectedOutput = [["l"],["u"]]
+assert.deepEqual(mirror(inputs),expectedOutput);
+inputs = [["**-","--*","004"],["123","456","789"]];
+expectedOutput = [["004","--*","**-"],["789","456","123"]];
+assert.deepEqual(mirror(inputs),expectedOutput);
+console.log("mirror function passed");
