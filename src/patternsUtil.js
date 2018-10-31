@@ -50,7 +50,7 @@ const makeCycler = function(elements){
 const createAlternativeRectangle = function(width,height){
   let result = Array(height).fill("");
   let rotater = makeCycler([filledLine(width),alternateLine(width)]);
-   result =  result.map(rotater);
+  result =  result.map(rotater);
   return result;
 };
 
@@ -130,7 +130,7 @@ const extractInputs = function(args){
 };
 
 const extractMultiInputs = function (array){
-    let result = [];
+  let result = [];
   let i = 0;
   for ( let index = 2; index < array.length ; index +=2){
     result[i] = {};
@@ -153,4 +153,49 @@ const centerJustifier = function(text,length){
   let spaces = generatePattern(number," ");
   return spaces+text+spaces;
 }
-module.exports = {generatePattern , generateLine , leftWidth , rightWidth , filledLine, hollowLine , alternateLine , createAlternativeRectangle , generateLeftTriangleLine , generateRightTriangleLine , angledLine , reverseText,extractInputs , createFilledRectangle , createHollowRectangle ,centerJustifier , createLeftTriangle , createRightTriangle ,makeCycler ,extractMultiInputs };
+
+const findMaxlength = function(length,element){
+  if(element.length > length){
+    length = element.length;
+  }
+  return length;
+}
+
+const mergePatterns = function(array){
+  let result = [];
+  let length = array.reduce(findMaxlength,0);
+  for(let i = 0 ; i < length ; i++){
+    result[i] = [];
+    for(let index = 0 ; index < array.length ; index++){
+      if(!array[index][i]){
+        array[index][i] = new Array(array[index][0].length).fill(" ").join("");
+      }
+      result[i].push(array[index][i]);
+    }
+    result[i] = result[i].join(" ");
+  }
+  return result;
+}
+
+module.exports = {generatePattern ,
+  generateLine ,
+  leftWidth ,
+  rightWidth ,
+  filledLine,
+  hollowLine ,
+  alternateLine ,
+  createAlternativeRectangle ,
+  generateLeftTriangleLine ,
+  generateRightTriangleLine ,
+  angledLine ,
+  reverseText,
+  extractInputs ,
+  createFilledRectangle ,
+  createHollowRectangle ,
+  centerJustifier ,
+  createLeftTriangle ,
+  createRightTriangle ,
+  makeCycler ,
+  extractMultiInputs ,
+  findMaxlength ,
+  mergePatterns };

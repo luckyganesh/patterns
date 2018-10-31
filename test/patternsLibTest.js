@@ -1,5 +1,6 @@
 const assert = require("assert");
 const { generateRectangle , generateTriangle , generateDiamond ,createPattern} = require("../src/patternsLib.js");
+let expectedResult;
 //generateTriangle function
 assert.deepEqual(generateTriangle({type:"left",height:3}),["*  ","** ","***"]);
 assert.deepEqual(generateTriangle({type:"right",height:3}),["  *"," **","***"]);
@@ -22,7 +23,14 @@ assert.deepEqual(generateDiamond({type:"angled",height:1}),["*"]);
 console.log("generate diamond function test passed");
 
 //createPattern function
-assert.deepEqual(createPattern(["node","createPattern.js","left_triangle",5]),[["*    ","**   ","***  ","**** ","*****"]]);
-assert.deepEqual(createPattern(["node","createPattern.js","right_triangle",5]),[["    *","   **","  ***"," ****","*****"]]);
-assert.deepEqual(createPattern(["node","createPattern.js","filled_rectangle",5,6,"right_triangle",5]),[["*****","*****","*****","*****","*****","*****"],["    *","   **","  ***"," ****","*****"]]);
+assert.deepEqual(createPattern(["node","createPattern.js","left_triangle",5]),["*    ","**   ","***  ","**** ","*****"]);
+assert.deepEqual(createPattern(["node","createPattern.js","right_triangle",5]),["    *","   **","  ***"," ****","*****"]);
+expectedResult = [];
+expectedResult.push("*****     *");
+expectedResult.push("*****    **");
+expectedResult.push("*****   ***");
+expectedResult.push("*****  ****");
+expectedResult.push("***** *****");
+expectedResult.push("*****      ");
+assert.deepEqual(createPattern(["node","createPattern.js","filled_rectangle",5,6,"right_triangle",5]),expectedResult);
 console.log("create pattern function test passed");

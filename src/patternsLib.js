@@ -3,7 +3,7 @@ const { filledLine , hollowLine , alternateLine , createAlternativeRectangle } =
 const { generateLeftTriangleLine , generateRightTriangleLine } = require("./patternsUtil.js");
 const { angledLine , reverseText ,createFilledRectangle ,createHollowRectangle} = require("./patternsUtil.js");
 const { centerJustifier , createLeftTriangle ,createRightTriangle } = require("./patternsUtil.js");
-const { extractInputs ,extractMultiInputs  } = require("./patternsUtil.js");
+const { extractInputs ,extractMultiInputs , mergePatterns } = require("./patternsUtil.js");
 
 const generateRectangle = function(parameters){
   let { type , width , height } = parameters;
@@ -54,7 +54,7 @@ const createPattern = function(patternInputs){
     let pattern = patterns[i];
     result[i] = patternType[pattern.shape](pattern);
   }
-  return result;
+  return mergePatterns(result);
 }
 
 module.exports = { generateRectangle , generateTriangle , generateDiamond , createPattern};

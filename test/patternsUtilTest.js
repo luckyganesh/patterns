@@ -138,3 +138,19 @@ assert.equal("white",cycleColours());
 assert.equal("black",cycleColours());
 assert.equal("white",cycleColours());
 console.log("make cycler function passed");
+
+//find Max length
+let { findMaxlength } = util;
+assert.equal(findMaxlength(1,[]),1);
+assert.equal(findMaxlength(1,["s"]),1);
+assert.equal(findMaxlength(1,["s","a"]),2);
+assert.equal(findMaxlength(3,["s","a"]),3);
+console.log("findMaxlength function passed");
+
+//mergePatterns 
+let { mergePatterns } = util;
+assert.deepEqual(mergePatterns([[1,2],[3,4]]),['1 3','2 4']);
+assert.deepEqual(mergePatterns([[1],[3,4]]),['1 3','  4']);
+assert.deepEqual(mergePatterns([[1,2],[3]]),['1 3','2  ']);
+console.log("mergePatterns function passed");
+
