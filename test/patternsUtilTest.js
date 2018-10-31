@@ -154,3 +154,33 @@ assert.deepEqual(mergePatterns([[1],[3,4]]),['1 3','  4']);
 assert.deepEqual(mergePatterns([[1,2],[3]]),['1 3','2  ']);
 console.log("mergePatterns function passed");
 
+//extractMultiple inputs
+let { extractMultiInputs } = util;
+expectedOutput = [];
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
+assert.deepEqual(extractMultiInputs(["node" , "createPattern.js","filled_diamond",5]),expectedOutput);
+expectedOutput = [];
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
+assert.deepEqual(extractMultiInputs(["node" , "createPattern.js","filled_triangle",5]),expectedOutput);
+expectedOutput = [];
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
+let inputs = [];
+inputs.push("node");
+inputs.push("createPatterns.js");
+inputs = inputs.concat(["filled_triangle",5]);
+inputs = inputs.concat(["filled_diamond",5]);
+assert.deepEqual(extractMultiInputs(inputs),expectedOutput);
+expectedOutput = [];
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "triangle"});
+expectedOutput.push({ type :"filled" ,height : 5 , shape : "diamond"});
+expectedOutput.push({ type :"filled" ,height : 5 , width : 5 , shape : "rectangle"});
+inputs = [];
+inputs.push("node");
+inputs.push("createPatterns.js");
+inputs = inputs.concat(["filled_triangle",5]);
+inputs = inputs.concat(["filled_diamond",5]);
+inputs = inputs.concat(["filled_rectangle",5,5]);
+assert.deepEqual(extractMultiInputs(inputs),expectedOutput);
+console.log("extractMultiple inputs function passed");
+

@@ -132,7 +132,11 @@ const extractInputs = function(args){
 const extractMultiInputs = function (array){
   let result = [];
   let i = 0;
-  for ( let index = 2; index < array.length ; index +=2){
+  let start = 2;
+  if(array[2] == "flip" || array[2] == "mirror"){
+    start = 3;
+  }
+  for ( let index = start; index < array.length ; index +=2){
     result[i] = {};
     type = array[index].split("_");
     let parameters = [type[0],array[index+1]]
